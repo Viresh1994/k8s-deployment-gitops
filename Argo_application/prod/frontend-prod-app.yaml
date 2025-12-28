@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend-prod
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/your-org/my-k8s-deployments-repo.git
+    targetRevision: HEAD
+    path: helm_charts/frontend
+    helm:
+      valueFiles:
+        - values.yaml
+        - values/prod.yaml #valueFiles paths are relative to path: helm_charts/frontend
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default  #prod
+
+  syncPolicy:
+    automated:
+      prune: false    #true
+      selfHeal: false  #true
