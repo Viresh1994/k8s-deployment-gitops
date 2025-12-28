@@ -8,7 +8,7 @@ spec:
 
   source:
     repoURL: https://github.com/Viresh1994/k8s-deployment-gitops.git
-    targetRevision: HEAD
+    targetRevision: master
     path: helm_charts/backend
     helm:
       valueFiles:
