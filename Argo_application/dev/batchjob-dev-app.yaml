@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-org/my-k8s-deployments-repo.git
+    repoURL: https://github.com/Viresh1994/k8s-deployment-gitops.git
     targetRevision: HEAD
     path: helm-charts/batchjob
     helm:
