@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Viresh1994/k8s-deployment-gitops.git
     targetRevision: master
-    path: helm-charts/batchjob
+    path: helm_charts/batchjob
     helm:
       valueFiles:
         - values.yaml
