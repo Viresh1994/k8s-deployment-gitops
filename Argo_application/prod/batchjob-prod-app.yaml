@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: batchjob-prod
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Viresh1994/k8s-deployment-gitops.git
+    targetRevision: master
+    path: helm_charts/batchjob
+    helm:
+      valueFiles:
+        - values.yaml
+        - values/prod.yaml #valueFiles paths are relative to path: helm_charts/frontend
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod  #prod
+  syncPolicy:
+    automated:
+      prune: true    #true
+      selfHeal: true  #true
